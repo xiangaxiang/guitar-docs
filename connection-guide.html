@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>D15吉他 连接说明</title>
+    <style>
+        :root {
+            --accent: #007AFF;
+            --text: #1c1c1e;
+            --text-secondary: #8e8e93;
+            --bg: #f2f2f7;
+            --card: #ffffff;
+            --border: #e5e5ea;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-text-size-adjust: 100%;
+        }
+        .header {
+            background: var(--card);
+            padding: 24px 20px 16px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .header .version {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        .section {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .section h2 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section h2 .icon {
+            font-size: 20px;
+        }
+        .platform-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .step {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .step:last-child { border-bottom: none; }
+        .step-num {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .step h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .step p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-left: 34px;
+        }
+        .connection-type {
+            background: #f0f0f5;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin: 8px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .path-list {
+            list-style: none;
+            margin: 8px 0 0 34px;
+        }
+        .path-list li {
+            padding: 4px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .path-list li::before {
+            content: "→ ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .tip-box {
+            background: #fff8e6;
+            border-left: 4px solid #ff9500;
+            padding: 14px 16px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 12px;
+        }
+        .tip-box strong {
+            color: #ff9500;
+            font-size: 14px;
+        }
+        .tip-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .important {
+            background: #fff0f0;
+            border-left: 4px solid #ff3b30;
+            padding: 14px 16px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 12px;
+        }
+        .important strong {
+            color: #ff3b30;
+            font-size: 15px;
+        }
+        .important p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-top: 6px;
+        }
+        .qr-section {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .qr-section h2 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .qr-section img {
+            width: 160px;
+            height: 160px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin: 8px 0;
+        }
+        .qr-section p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+        .qr-section .wechat {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 8px;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #ffffff;
+                --text-secondary: #8e8e93;
+                --bg: #000000;
+                --card: #1c1c1e;
+                --border: #38383a;
+            }
+            .connection-type { background: #2c2c2e; }
+            .tip-box { background: #2d2618; }
+            .important { background: #2d1a1a; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>D15 自动吉他 连接说明</h1>
+        <div class="version">适用版本：V4.5</div>
+    </div>
+
+    <div class="container">
+        <!-- 苹果 iPhone -->
+        <div class="section">
+            <h2><span class="icon">🍎</span>苹果手机用户</h2>
+            <div class="step">
+                <h3><span class="step-num">1</span>准备工作</h3>
+                <p>iPhone 从苹果应用商店下载 <span style="font-weight:600; color: var(--accent);">库乐队</span>（GarageBand）。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">2</span>打开库乐队</h3>
+                <p>点击右上角 +，音轨页面选择吉他。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">3</span>连接方式 A：Type-C 直连</h3>
+                <p><span class="platform-badge">iPhone 15 以上</span></p>
+                <div class="connection-type">推荐使用 Type-C 线直连</div>
+                <p style="margin-top: 8px;">用 Type-C 线连接吉他左侧 USB 口与 iPhone，直接可以弹奏。</p>
+                <p>也支持蓝牙连接，可参考方式 B。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">4</span>连接方式 B：蓝牙连接</h3>
+                <p><span class="platform-badge">iPhone 15 以下</span></p>
+                <div class="connection-type">需额外供电</div>
+                <p style="margin-top: 8px;">iPhone 15 以下不支持 Type-C 直连，需要给吉他插上 Type-C 接口电源或充电宝供电，然后从库乐队中选择蓝牙吉他连接。</p>
+                <p style="margin-top: 8px; font-weight: 600;">连接路径：</p>
+                <ul class="path-list">
+                    <li>库乐队右上角「设置」（齿轮图标）</li>
+                    <li>设置页最下方「高级」</li>
+                    <li>高级页最下方「蓝牙 MIDI 设备」</li>
+                    <li>选择「Control Surface MIDI」或「CyberBot-D15-Guitar」</li>
+                </ul>
+                <p style="margin-top: 8px; font-size: 13px; color: var(--text-secondary);">（注：设备名不同版本可能不同，一般有能连接的就是它了）</p>
+            </div>
+        </div>
+
+        <!-- 苹果 Mac -->
+        <div class="section">
+            <h2><span class="icon">💻</span>苹果 Mac 用户</h2>
+            <p style="font-size: 15px; color: var(--text-secondary);">Type-C 和蓝牙都支持。</p>
+            <div class="step" style="margin-top: 12px;">
+                <h3><span class="step-num">1</span>Type-C 直连</h3>
+                <p>Mac 直接连接吉他 Type-C 口。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">2</span>蓝牙连接</h3>
+                <p>需要单独给吉他供电（充电宝或 Type-C 电源）。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">3</span>库乐队设置</h3>
+                <ul class="path-list">
+                    <li>音频 MIDI 设置，找到 Control Surface MIDI 或 CyberBot-D15-Guitar，连接</li>
+                    <li>库乐队 → 新项目 → MIDI 乐器 → 吉他</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 安卓 -->
+        <div class="section">
+            <h2><span class="icon">🤖</span>安卓手机用户</h2>
+            <div class="important">
+                <strong>⚠️ 重要提示</strong>
+                <p>安卓手机对蓝牙 MIDI 支持不好（并非吉他设备问题），所以吉他只支持 Type-C 直连。</p>
+            </div>
+            <div class="step" style="margin-top: 12px;">
+                <h3><span class="step-num">1</span>准备工作</h3>
+                <p>应用宝 APP 中搜索「随身乐队」。</p>
+                <p style="margin-top: 4px; font-size: 13px; color: var(--text-secondary);">如果没有应用宝，用浏览器先下载应用宝：sj.qq.com</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">2</span>连接</h3>
+                <p>Type-C 直连吉他左侧 USB 口和手机。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">3</span>开始弹奏</h3>
+                <p>随身乐队选吉他，直接可以弹奏了。</p>
+            </div>
+        </div>
+
+        <!-- Windows -->
+        <div class="section">
+            <h2><span class="icon">🪟</span>Windows 用户</h2>
+            <p style="font-size: 15px; color: var(--text-secondary);">本人实测 Windows 11 台式机 + Cakewalk，完美兼容。</p>
+            <div class="important" style="margin-top: 12px;">
+                <strong>⚠️ 注意</strong>
+                <p>Windows 机器个体差异极大，不保证你的可用，谨慎购买。</p>
+            </div>
+        </div>
+
+        <!-- 售后 -->
+        <div class="qr-section">
+            <h2><span class="icon">📞</span>售后联系</h2>
+            <p>扫码添加客服微信，获取升级服务与技术支持</p>
+            <img src="images/connection-embedded-1.png" alt="微信二维码">
+            <div class="wechat">微信：D15Cyber</div>
+            <p style="margin-top: 8px;">也欢迎查看视频号，有详细使用方法</p>
+        </div>
+    </div>
+</body>
+</html>

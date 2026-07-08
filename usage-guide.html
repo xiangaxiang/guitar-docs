@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>D15吉他 使用说明</title>
+    <style>
+        :root {
+            --accent: #007AFF;
+            --text: #1c1c1e;
+            --text-secondary: #8e8e93;
+            --bg: #f2f2f7;
+            --card: #ffffff;
+            --border: #e5e5ea;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-text-size-adjust: 100%;
+        }
+        .header {
+            background: var(--card);
+            padding: 24px 20px 16px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .header .version {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        .section {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .section h2 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section h2 .icon {
+            font-size: 20px;
+        }
+        .step {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .step:last-child { border-bottom: none; }
+        .step-num {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .step h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .step p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-left: 34px;
+        }
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .key-combo {
+            background: #f0f0f5;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-size: 15px;
+        }
+        .key-combo .note {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .buttons-img {
+            width: 100%;
+            max-width: 280px;
+            display: block;
+            margin: 16px auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .func-list {
+            list-style: none;
+            margin: 10px 0 0 34px;
+        }
+        .func-list li {
+            padding: 6px 0;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+        .func-list li::before {
+            content: "· ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .tip-box {
+            background: #fff8e6;
+            border-left: 4px solid #ff9500;
+            padding: 14px 16px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 16px;
+        }
+        .tip-box strong {
+            color: #ff9500;
+            font-size: 14px;
+        }
+        .tip-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .important {
+            background: #fff0f0;
+            border-left: 4px solid #ff3b30;
+            padding: 14px 16px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 16px;
+        }
+        .important strong {
+            color: #ff3b30;
+            font-size: 15px;
+        }
+        .important p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-top: 6px;
+        }
+        .contact {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .contact p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .contact .wechat {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 8px;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #ffffff;
+                --text-secondary: #8e8e93;
+                --bg: #000000;
+                --card: #1c1c1e;
+                --border: #38383a;
+            }
+            .key-combo { background: #2c2c2e; }
+            .tip-box { background: #2d2618; }
+            .important { background: #2d1a1a; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>D15 自动吉他 使用说明</h1>
+        <div class="version">适用版本：V4.5</div>
+    </div>
+
+    <div class="container">
+        <!-- 基本操作 -->
+        <div class="section">
+            <h2><span class="icon">🎸</span>基本操作</h2>
+            <div class="step">
+                <h3><span class="step-num">1</span>自动和弦模式</h3>
+                <p>吉他连好，APP启动。默认<span class="highlight">自动和弦模式</span>下，按 1-8 号键即可弹出对应和弦。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">2</span>分解和弦模式</h3>
+                <p>按一下 <span class="highlight">10 号键</span>切换到分解和弦模式。此模式下，按一下 C 键，会连续弹出 4 个音符（两拍）；如按住 C 不放，会连续弹出 8 个音符（4 拍）。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">3</span>扫弦模式</h3>
+                <p>按一下 <span class="highlight">9 号键</span>切换到扫弦模式。此模式下，按一下 C 键，会弹出 2 拍扫弦；如按住 C 不放，会弹出 4 拍扫弦。</p>
+            </div>
+        </div>
+
+        <!-- 按钮布局图 -->
+        <div class="section" style="text-align: center; padding-bottom: 12px;">
+            <h2 style="justify-content: center;"><span class="icon">🎹</span>按键布局</h2>
+            <img src="images/usage-embedded-1.png" alt="吉他按键布局" class="buttons-img">
+            <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">和弦按键 1-8 与模式切换键 9、10</p>
+        </div>
+
+        <!-- 其他功能切换 -->
+        <div class="section">
+            <h2><span class="icon">⚙️</span>其他功能设置</h2>
+            <div class="key-combo">
+                <strong>⚠️ 注意：以下操作需同时按住 9 + 10 号键</strong><br>
+                <span class="note">（+ 其他键，对应如下功能设置）</span>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">1</span>设置音调（初始 C 调）</h3>
+                <ul class="func-list">
+                    <li><span class="highlight">升调（+1 键）</span>：按一次，升半个调；相当于变调夹夹一品。例：如需升到 D 调，需按两次升调（C 和 D 中间是两个半音）</li>
+                    <li><span class="highlight">降调（+2 键）</span>：按一次，降半个调。（初始 C 调不能再降）</li>
+                    <li><span class="highlight">重置</span>：同时加按 +1+2，重置为初始 C 调</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">2</span>设置节奏（初始 75 bpm）</h3>
+                <ul class="func-list">
+                    <li><span class="highlight">加速（+5 键）</span>：按一次，和弦加速 1 bpm。如长按，白灯闪一次，跳到整数和弦 80，然后依次 90、100。</li>
+                    <li><span class="highlight">减速（+6 键）</span>：则减速，与加速相反逻辑。</li>
+                    <li><span class="highlight">重置</span>：同时加按 +5+6，重置为初始 75 bpm</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">3</span>半自动和弦模式（+7 键）</h3>
+                <ul class="func-list">
+                    <li>如按住 C 和弦同时，按一下 10 键，弹 4 个音符（两拍）。此时 C 键未松手，再按一下 10 键，会继续弹后 4 个音符。</li>
+                    <li>如按住 C 和弦同时，按一下 9 键，扫弦前 2 拍。此时 C 键未松手，再按一下 9 键，会扫弦后 2 拍。</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">4</span>单音模式（+8 键）</h3>
+                <p>从和弦模式切到单音模式，再按一次切回和弦模式。</p>
+            </div>
+            <div class="step">
+                <h3><span class="step-num">5</span>测试功能区（加按 3 键）</h3>
+                <p>测试区，可不用理会。</p>
+            </div>
+        </div>
+
+        <!-- 试奏 -->
+        <div class="section">
+            <h2><span class="icon">🎵</span>试奏曲谱</h2>
+            <p style="font-size: 15px; color: var(--text-secondary);">
+                对照图上和弦即可弹奏。<br>
+                谱上一个和弦标记一般是 2 拍。
+            </p>
+            <div class="tip-box" style="margin-top: 12px;">
+                <strong>推荐曲目</strong>
+                <p>《小星星》《兰花草》《半壶纱》伴奏曲谱</p>
+            </div>
+        </div>
+
+        <!-- 重要提示 -->
+        <div class="important">
+            <strong>💡 重要提示</strong>
+            <p>加客服微信，获取所需更多曲谱、材料、升级包等。</p>
+        </div>
+
+        <!-- 联系方式 -->
+        <div class="contact">
+            <h2><span class="icon">📞</span>售后联系</h2>
+            <p>获取曲谱、升级服务、技术支持</p>
+            <div class="wechat">微信：D15Cyber</div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">
+                也欢迎扫码添加，查看视频号详细使用方法
+            </p>
+        </div>
+    </div>
+</body>
+</html>
