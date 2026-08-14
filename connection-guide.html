@@ -4,7 +4,7 @@
 :root{--a:#007aff;--t:#1c1c1e;--s:#636366;--b:#f2f2f7;--c:#fff;--line:#e5e5ea;--warn:#fff8e6}*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,"PingFang SC",sans-serif;background:var(--b);color:var(--t);line-height:1.6}.head{position:sticky;top:0;z-index:2;padding:18px;text-align:center;background:var(--c);border-bottom:1px solid var(--line)}h1{font-size:22px}.ver,p,li{color:var(--s);font-size:15px}.ver{font-size:13px}.wrap{max-width:640px;margin:auto;padding:14px}.card{margin-bottom:12px;padding:18px;border-radius:14px;background:var(--c)}h2{margin-bottom:9px;font-size:18px}h3{margin:12px 0 3px;font-size:16px}ol,ul{padding-left:22px}li{margin:6px 0}.main{color:var(--t)}.a{color:var(--a);font-weight:600}.flow{margin-top:9px;padding:12px 14px;border-radius:11px;background:var(--b)}.warn{padding:12px 14px;border-left:4px solid #ff9500;border-radius:0 10px 10px 0;background:var(--warn)}details{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}summary{color:var(--a);font-size:15px;font-weight:600;cursor:pointer}a{color:var(--a)}@media(prefers-color-scheme:dark){:root{--t:#fff;--s:#b0b0b5;--b:#000;--c:#1c1c1e;--line:#38383a;--warn:#2d2618}}
 </style></head><body><header class="head"><h1>D15吉他 连接说明</h1><div class="ver">V4.5 · 请按你的设备选择</div></header><main class="wrap">
 
-<section class="card"><h2>先确认吉他硬件版本</h2><div class="warn"><p><b>硬件 V1.0：</b>2026 年 6 月 14 日之前购买。只支持苹果设备 BLE 蓝牙连接，不支持 USB。</p><p><b>硬件 V2.0：</b>2026 年 6 月 14 日至 6 月 16 日购买。在苹果 BLE 基础上，增加苹果 Type‑C 和安卓 Type‑C；不支持安卓蓝牙连接。</p><p><b>硬件 V3.0：</b>2026 年 6 月 16 日之后购买，外观改为黑色并带 PCB。支持 USB；手机也可通过蓝牙连接 D15 App。</p></div><details><summary>没有购买日期，怎么判断？</summary><ul><li><b>只能连接苹果 BLE，USB 无法使用：</b>硬件 V1.0。</li><li><b>苹果和安卓都能用 Type‑C，但安卓搜不到蓝牙：</b>硬件 V2.0。</li><li><b>黑色外观、带 PCB，并支持安卓 D15 App 蓝牙：</b>硬件 V3.0。</li></ul></details></section>
+
 
 <section class="card"><h2>iPhone / iPad</h2><h3>推荐：USB 连接</h3><ol><li>使用支持数据传输的 Type‑C 线或合适的苹果转接器连接吉他。</li><li>打开 D15吉他 App，看到“有线/外设 MIDI 已连接”后即可使用。</li></ol><p class="flow">USB 适用于硬件 V2.0、V3.0。硬件 V1.0 不支持 USB。</p><h3>其次：蓝牙连接 D15 App</h3><ol><li>打开吉他和手机蓝牙。</li><li>进入 D15 App“蓝牙吉他”，点“扫描”。</li><li>选择 D15 吉他，连接后回到控制页。</li></ol><p>硬件 V1.0、V2.0、V3.0 均可通过苹果设备 BLE 蓝牙连接。</p></section>
 
@@ -13,6 +13,8 @@
 <section class="card"><h2>Mac 电脑</h2><h3>推荐：USB 连接</h3><ol><li>用 Type‑C 数据线连接吉他和 Mac。</li><li>打开库乐队或其他 MIDI 音源，选择软件乐器即可演奏。</li></ol><p class="flow">USB 适用于硬件 V2.0、V3.0；硬件 V1.0 不支持 USB。</p><h3>其次：蓝牙 MIDI</h3><p>在 macOS“音频 MIDI 设置”中打开蓝牙 MIDI 配置并连接吉他，再进入库乐队或其他音乐软件。硬件 V1.0、V2.0、V3.0 均可通过苹果设备 BLE 蓝牙连接。</p></section>
 
 <section class="card"><h2>Windows 电脑</h2><h3>推荐：USB 连接</h3><ol><li>用 Type‑C 数据线连接吉他和电脑。</li><li>打开支持 MIDI 输入的软件，例如 Cakewalk，选择 D15 吉他作为 MIDI 输入。</li><li>新建软件乐器音轨并选择音色。</li></ol><p class="flow">已在 Windows 11 + Cakewalk 环境测试。不同电脑、驱动和音乐软件可能存在差异。</p><h3>蓝牙连接</h3><p>仅在 Windows 系统和音乐软件支持 BLE MIDI 时尝试，兼容性与延迟因设备而异；日常使用建议 USB。</p></section>
+
+<section class="card"><h2>确认吉他硬件版本</h2><div class="warn"><p><b>硬件 V1.0：</b>2026 年 6 月 14 日之前购买。只支持苹果设备 BLE 蓝牙连接，不支持 USB。</p><p><b>硬件 V2.0：</b>2026 年 6 月 14 日至 6 月 16 日购买。在苹果 BLE 基础上，增加苹果 Type‑C 和安卓 Type‑C；不支持安卓蓝牙连接。</p><p><b>硬件 V3.0：</b>2026 年 6 月 16 日之后购买，外观改为黑色并带 PCB。支持 USB；手机也可通过蓝牙连接 D15 App。</p></div><details>
 
 <section class="card"><h2>连接后没有声音？</h2><ul><li>确认使用的是数据线，不是只能充电的线。</li><li>查看 D15 App 连接状态，确认当前走 USB 还是蓝牙。</li><li>使用 D15 App 时，检查手机音量和“App 不发声”设置。</li><li>使用库乐队、随身乐队或 Cakewalk 时，确认已创建软件乐器音轨并选择音色。</li></ul><details><summary>蓝牙搜不到吉他</summary><p>确认硬件版本支持蓝牙，并检查吉他是否已被另一台设备或其他 App 占用。断开其他连接后重新扫描，必要时重启吉他和蓝牙。</p></details></section>
 
