@@ -827,6 +827,10 @@ h3 {
   max-height: calc(100vh - 40px);
 }
 
+.help-dialog {
+  width: min(720px, 100%);
+}
+
 .dialog-header {
   display: flex;
   align-items: center;
@@ -842,6 +846,27 @@ h3 {
 .dialog-summary {
   color: var(--muted);
   margin-bottom: 12px;
+}
+
+.help-list {
+  color: var(--text);
+  margin: 8px 0 16px;
+  padding-left: 22px;
+}
+
+.help-list li + li {
+  margin-top: 6px;
+}
+
+.help-code {
+  margin: 8px 0 16px;
+  padding: 12px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8f5ef;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .import-steps {

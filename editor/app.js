@@ -124,6 +124,7 @@ const els = {
   restoreDraftButton: document.getElementById("restoreDraftButton"),
   loadExampleButton: document.getElementById("loadExampleButton"),
   newChartButton: document.getElementById("newChartButton"),
+  helpButton: document.getElementById("helpButton"),
   titleInput: document.getElementById("titleInput"),
   artistInput: document.getElementById("artistInput"),
   bpmInput: document.getElementById("bpmInput"),
@@ -170,6 +171,8 @@ const els = {
   importDialogClose: document.getElementById("importDialogClose"),
   importDialogSummary: document.getElementById("importDialogSummary"),
   importDialogList: document.getElementById("importDialogList"),
+  helpDialog: document.getElementById("helpDialog"),
+  helpDialogClose: document.getElementById("helpDialogClose"),
   lyricsBedDialog: document.getElementById("lyricsBedDialog"),
   lyricsBedDialogClose: document.getElementById("lyricsBedDialogClose"),
   lyricsBedCancelButton: document.getElementById("lyricsBedCancelButton"),
@@ -215,9 +218,14 @@ function init() {
     loadChart(structuredClone(exampleChart), "已载入内置示例。");
   });
   els.newChartButton.addEventListener("click", newBlankChart);
+  els.helpButton.addEventListener("click", showHelpDialog);
   els.importDialogClose.addEventListener("click", hideImportDialog);
   els.importDialog.addEventListener("click", (event) => {
     if (event.target === els.importDialog) hideImportDialog();
+  });
+  els.helpDialogClose.addEventListener("click", hideHelpDialog);
+  els.helpDialog.addEventListener("click", (event) => {
+    if (event.target === els.helpDialog) hideHelpDialog();
   });
   els.zoomOutButton.addEventListener("click", () => setZoom(state.pxPerBeat - 12));
   els.zoomInButton.addEventListener("click", () => setZoom(state.pxPerBeat + 12));
@@ -4139,6 +4147,14 @@ function showImportDialog(fileName, errors) {
 
 function hideImportDialog() {
   els.importDialog.hidden = true;
+}
+
+function showHelpDialog() {
+  els.helpDialog.hidden = false;
+}
+
+function hideHelpDialog() {
+  els.helpDialog.hidden = true;
 }
 
 function showExportMessage(filename, url, message = "") {
