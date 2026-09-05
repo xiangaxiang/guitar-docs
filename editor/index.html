@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D15 用户曲谱编辑器</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="file-actions">
+      <label class="button primary">
+        导入 JSON
+        <input id="fileInput" type="file" accept="application/json,.json">
+      </label>
+      <button id="exportButton" class="button">导出 JSON</button>
+      <button id="undoButton" class="button ghost">撤销</button>
+      <button id="redoButton" class="button ghost">重做</button>
+      <button id="saveDraftButton" class="button ghost">保存草稿</button>
+      <button id="restoreDraftButton" class="button ghost">恢复草稿</button>
+      <button id="loadExampleButton" class="button ghost">载入示例</button>
+      <button id="newChartButton" class="button ghost">新建/清空</button>
+    </div>
+
+    <div class="meta-fields">
+      <label>标题<input id="titleInput" type="text"></label>
+      <label>艺术家<input id="artistInput" type="text"></label>
+      <label>BPM<input id="bpmInput" type="number" min="20" max="260" step="1"></label>
+      <label>Key<input id="keyInput" type="text"></label>
+      <label>每小节拍数<input id="beatsPerBarInput" type="number" min="1" step="0.5"></label>
+      <label>拍内细分
+        <select id="gridFractionInput">
+          <option value="2">半拍</option>
+          <option value="4">四分之一拍</option>
+          <option value="8">八分之一拍</option>
+        </select>
+      </label>
+      <label>和弦库<select id="chordBankInput"></select></label>
+      <label>原调<input id="originalKeyInput" type="text" placeholder="可选"></label>
+      <label>变调夹<input id="capoInput" type="number" min="0" max="12" step="1" value="0"></label>
+      <span id="capoSourceTag" class="capo-source-tag"></span>
+      <label>拍号分母<input id="beatUnitInput" type="number" min="1" max="16" step="1" value="4"></label>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="timeline-panel">
+      <div class="timeline-header">
+        <div>
+          <h1 id="songHeading">D15 用户曲谱编辑器</h1>
+          <p id="chartSummary">新建曲谱、导入 JSON，或直接铺歌词/铺和弦后导出。</p>
+        </div>
+        <div class="timeline-tools">
+          <button id="zoomOutButton" class="icon-button" title="缩小">-</button>
+          <span id="zoomLabel">72 px/拍</span>
+          <button id="zoomInButton" class="icon-button" title="放大">+</button>
+          <button id="prevPageButton" class="icon-button" title="上一页">←</button>
+          <button id="nextPageButton" class="icon-button" title="下一页">→</button>
+          <label class="compact-tool">工作和弦<select id="quickChordNameInput"></select></label>
+          <label class="compact-tool full-chord-tool">总库<input id="paletteChordInput" list="allChordNames" type="text" placeholder="Em/B"></label>
+          <datalist id="allChordNames"></datalist>
+          <button id="addPaletteChordButton" class="button">加入工作组</button>
+          <button id="resetPaletteCButton" class="button ghost">重置 C</button>
+          <button id="resetPaletteGButton" class="button ghost">重置 G</button>
+          <button id="copyChordsButton" class="button">复制和弦</button>
+          <button id="copyLyricsButton" class="button">复制歌词</button>
+          <button id="copySegmentButton" class="button">复制片段</button>
+          <button id="pasteChordsButton" class="button">粘贴</button>
+          <button id="addChordButton" class="button">添加和弦</button>
+          <button id="addBarButton" class="button">添加小节</button>
+          <button id="chordsBedButton" class="button">铺和弦</button>
+          <button id="lyricsBedButton" class="button">铺歌词</button>
+          <button id="overviewButton" class="button">总览</button>
+        </div>
+      </div>
+
+      <div id="messageArea" class="message-area" aria-live="polite"></div>
+      <div id="quickChordPalette" class="quick-chord-palette" aria-label="当前歌曲工作和弦组"></div>
+
+      <div class="timeline-scroll">
+        <div id="timelineCanvas" class="timeline-canvas"></div>
+      </div>
+    </section>
+
+    <aside class="inspector">
+      <h2>检查器</h2>
+
+      <div class="field-group">
+        <label>和弦移动模式
+          <select id="chordMoveMode">
+            <option value="single">单个</option>
+            <option value="follow" selected>后续跟随</option>
+          </select>
+        </label>
+        <label>歌词移动模式
+          <select id="lyricMoveMode">
+            <option value="single">单个</option>
+            <option value="follow" selected>后续跟随</option>
+            <option value="bar-follow">本小节跟随</option>
+            <option value="bar-compact">本小节紧凑</option>
+          </select>
+        </label>
+        <div class="form-row">
+          <button id="clearLyricsFromHereButton" class="button" type="button">清空后续歌词</button>
+          <button id="clearAllLyricsButton" class="button danger" type="button">清空全部歌词</button>
+        </div>
+      </div>
+
+      <div id="selectionPanel" class="selection-panel">
+        <p class="empty-state">选择一个和弦或歌词 token。</p>
+      </div>
+
+      <div class="validation-box">
+        <h3>校验</h3>
+        <ul id="validationList"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <div id="importDialog" class="dialog-backdrop" hidden>
+    <section class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="importDialogTitle">
+      <div class="dialog-header">
+        <h2 id="importDialogTitle">导入没有完成</h2>
+        <button id="importDialogClose" class="icon-button" title="关闭">×</button>
+      </div>
+      <p id="importDialogSummary" class="dialog-summary"></p>
+      <ul id="importDialogList" class="dialog-list"></ul>
+    </section>
+  </div>
+
+  <div id="lyricsBedDialog" class="dialog-backdrop" hidden>
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="lyricsBedDialogTitle">
+      <div class="dialog-header">
+        <h2 id="lyricsBedDialogTitle">铺歌词</h2>
+        <button id="lyricsBedDialogClose" class="icon-button" title="关闭">×</button>
+      </div>
+      <p class="dialog-summary">粘贴歌词后，编辑器会按当前拍内细分一个格子放一个 token，从当前小节连续往后铺；已有和弦会保留。</p>
+      <label>歌词文本
+        <textarea id="lyricsPasteInput" rows="8" placeholder="粘贴完整歌词；换行只作为分隔，不决定小节"></textarea>
+      </label>
+      <div class="dialog-controls">
+        <p class="dialog-note">铺法：按字数连续填满当前细分格，格子不够会自动添加小节。</p>
+        <label>处理方式
+          <select id="lyricsReplaceInput">
+            <option value="replace">替换目标小节歌词</option>
+          </select>
+        </label>
+      </div>
+      <div class="dialog-actions">
+        <button id="lyricsBedApplyButton" class="button primary">生成歌词</button>
+        <button id="lyricsBedCancelButton" class="button">取消</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="chordsBedDialog" class="dialog-backdrop" hidden>
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="chordsBedDialogTitle">
+      <div class="dialog-header">
+        <h2 id="chordsBedDialogTitle">铺和弦</h2>
+        <button id="chordsBedDialogClose" class="icon-button" title="关闭">×</button>
+      </div>
+      <p class="dialog-summary">按“和弦,拍数;”连续输入，编辑器会从当前选中位置或当前小节开始顺序铺入；已有歌词会保留。</p>
+      <label>和弦序列
+        <textarea id="chordsSequenceInput" rows="8" placeholder="C,4; G,4; Am,2; F,2"></textarea>
+      </label>
+      <div class="dialog-controls">
+        <p class="dialog-note">拍数支持小数；如果跨小节，会自动拆到后续小节。</p>
+      </div>
+      <div class="dialog-actions">
+        <button id="chordsBedApplyButton" class="button primary">生成和弦</button>
+        <button id="chordsBedCancelButton" class="button">取消</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="overviewDialog" class="dialog-backdrop" hidden>
+    <section class="dialog overview-dialog" role="dialog" aria-modal="true" aria-labelledby="overviewDialogTitle">
+      <div class="dialog-header">
+        <div>
+          <h2 id="overviewDialogTitle">谱面总览</h2>
+          <p id="overviewSummary" class="dialog-summary"></p>
+        </div>
+        <button id="overviewDialogClose" class="icon-button" title="关闭">×</button>
+      </div>
+      <div class="overview-tabs" role="tablist" aria-label="总览模式">
+        <button class="active" type="button" data-overview-mode="bars">小节总览</button>
+        <button type="button" data-overview-mode="lines">换行预览</button>
+      </div>
+      <div class="overview-line-controls">
+        <label>换行规则
+          <select id="overviewLineRuleInput">
+            <option value="auto">按 displayLines</option>
+            <option value="2">每 2 小节一行</option>
+            <option value="4">每 4 小节一行</option>
+            <option value="6">每 6 小节一行</option>
+            <option value="8">每 8 小节一行</option>
+          </select>
+        </label>
+        <button id="applyOverviewLineRuleButton" class="button" type="button">应用换行</button>
+      </div>
+      <div id="overviewContent" class="overview-content"></div>
+    </section>
+  </div>
+
+  <script src="./chord-library.js"></script>
+  <script src="./chord-symbol.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
