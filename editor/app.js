@@ -3910,6 +3910,7 @@ function validateChartData(chart) {
   if (!Number.isFinite(Number(chart.beatsPerBar)) || Number(chart.beatsPerBar) <= 0) issues.push({ level: "bad", text: "beatsPerBar 必须为正数" });
   if (!Number.isInteger(Number(chart.ticksPerBeat)) || Number(chart.ticksPerBeat) <= 0) issues.push({ level: "bad", text: "ticksPerBeat 必须为正整数" });
   if (!CHORD_BANKS[chart.chordBank]) issues.push({ level: "bad", text: "chordBank 只支持 C 或 G" });
+  if (!Array.isArray(chart.sections) || !flattenBarsForChart(chart).length) issues.push({ level: "bad", text: "曲谱至少需要 1 个小节" });
 
   flattenBarsForChart(chart).forEach((barRef) => {
     barRef.bar.chords.forEach((chord) => {
