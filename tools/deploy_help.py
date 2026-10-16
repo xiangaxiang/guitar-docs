@@ -30,6 +30,11 @@ home=root/'index.html';html=home.read_text()
 old='https://xiangaxiang.github.io/guitar-docs/usage-guide.html'
 assert old in html or 'https://d15cyber.com/help/' in html, 'Homepage changed: review help links first'
 html=html.replace(old,'https://d15cyber.com/help/').replace('查看现有使用说明（V4.5）','查看使用说明').replace('使用说明（V4.5）','使用说明')
+navigation='<a href="#download">下载</a>'
+help_link='<a href="https://d15cyber.com/help/">使用指南</a>'
+if help_link not in html:
+ assert html.count(navigation)==1, 'Homepage navigation changed: review first'
+ html=html.replace(navigation,navigation+help_link,1)
 backup=Path('/root/d15-home-backups')/('help-'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S'))
 backup.mkdir(parents=True)
 for p in configs+[home]:shutil.copy2(p,backup/p.name)
