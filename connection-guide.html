@@ -1,36 +1,91 @@
-<!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>D15吉他 连接说明</title>
-<style>
-:root{--a:#007aff;--t:#1c1c1e;--s:#636366;--b:#f2f2f7;--c:#fff;--line:#e5e5ea;--warn:#fff8e6}*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,"PingFang SC",sans-serif;background:var(--b);color:var(--t);line-height:1.6}.head{position:sticky;top:0;z-index:2;padding:18px;text-align:center;background:var(--c);border-bottom:1px solid var(--line)}h1{font-size:22px}.ver,p,li{color:var(--s);font-size:15px}.ver{font-size:13px}.wrap{max-width:640px;margin:auto;padding:14px}.card{margin-bottom:12px;padding:18px;border-radius:14px;background:var(--c)}h2{margin-bottom:9px;font-size:18px}h3{margin:12px 0 3px;font-size:16px}ol,ul{padding-left:22px}li{margin:6px 0}.main{color:var(--t)}.a{color:var(--a);font-weight:600}.flow{margin-top:9px;padding:12px 14px;border-radius:11px;background:var(--b)}.warn{padding:12px 14px;border-left:4px solid #ff9500;border-radius:0 10px 10px 0;background:var(--warn)}details{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}summary{color:var(--a);font-size:15px;font-weight:600;cursor:pointer}a{color:var(--a)}@media(prefers-color-scheme:dark){:root{--t:#fff;--s:#b0b0b5;--b:#000;--c:#1c1c1e;--line:#38383a;--warn:#2d2618}}
-</style></head><body><header class="head"><h1>D15吉他 连接说明</h1><div class="ver">V1 · 请按你的设备选择</div></header><main class="wrap">
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>D15吉他 连接说明</title><style>
+:root{color-scheme:light dark;--bg:#f5f7fa;--panel:#fff;--ink:#182536;--muted:#53657a;--line:#d7e1ea;--accent:#007885;--note:#eaf5f6}
+@media(prefers-color-scheme:dark){:root{--bg:#0c1522;--panel:#142131;--ink:#edf3fa;--muted:#b0becd;--line:#304153;--accent:#65d5de;--note:#132f38}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}main{max-width:820px;margin:auto;padding:28px 24px 52px}nav{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;margin-bottom:24px}a{color:var(--accent);text-underline-offset:4px}h1{font-size:30px;line-height:1.4;margin:8px 0}h2{font-size:22px;margin:34px 0 12px;line-height:1.5}h3{font-size:18px;margin:20px 0 8px}p,ul,ol{margin:10px 0}li+li{margin-top:6px}.meta,.small{font-size:14px;color:var(--muted)}.note{padding:14px 18px;background:var(--note);border-left:3px solid var(--accent);border-radius:4px;margin:18px 0}.note p:first-child{margin-top:0}.note p:last-child{margin-bottom:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.card{background:var(--panel);padding:18px 20px;border:1px solid var(--line);border-radius:12px}.card h2,.card h3{margin:0 0 8px}.toc{display:flex;flex-wrap:wrap;gap:8px 18px;padding:14px 0;border-block:1px solid var(--line);margin-top:24px}.table{overflow-x:auto}table{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--muted);font-weight:600}details{border:1px solid var(--line);border-radius:10px;background:var(--panel);margin:12px 0;padding:0 18px}summary{padding:14px 0;cursor:pointer;font-weight:600}details[open]{padding-bottom:16px}details h3{font-size:17px}.keys{display:block;max-height:360px;max-width:100%;margin:16px auto;background:white;padding:10px;border-radius:10px}footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;color:var(--muted);font-size:13px}.button{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;margin:4px 8px 4px 0}kbd{font:inherit;font-weight:600}@media(max-width:420px){main{padding:20px 18px 40px}h1{font-size:26px}th,td{padding:8px}}@media print{details{break-inside:avoid}body{background:white;color:#182536}nav,.toc{display:none}main{max-width:none;padding:0}}
+</style></head><body><main>
+<nav aria-label="帮助导航"><a href="https://d15cyber.com/help/">帮助首页</a><a href="https://d15cyber.com/help/connection-guide.html">连接说明</a><a href="https://d15cyber.com/help/usage-guide.html">使用说明</a></nav>
+<header>
+<h1>D15吉他 连接说明</h1>
+<p class="meta">App 2.0 · 固件 5.x · 2026-10-16 更新</p></header>
+<aside class="note">
+<p>本页用于 <strong>D15吉他 App 2.0 与固件 5.x</strong>。有灯光版和无灯光版共用 App，声音、灯光功能按吉他支持情况显示。</p>
+<p>仍使用旧 App 或 4.5 等旧固件？请看 <a href="https://d15cyber.com/help/legacy/">Legacy 旧版说明</a>。旧款吉他升级到 5.x 后，按本页操作。</p></aside>
 
-<section class="card"><h2>iPhone / iPad</h2>
-    <h3>准备：苹果应用商店（App Store）下载 "D15吉他" App</h3>
-    <h3>推荐：USB(Type-C) 有线连接</h3><ol><li>使用支持数据传输的USB线连接吉他与iPhone，吉他红色指示灯亮起。</li><li>打开"D15吉他"App，看到“有线/外设 MIDI 已连接”后即可使用。</li></ol><p class="flow">USB适用于：吉他硬件V2.0及以上版本，iPhone15及以上版本，低版本请使用蓝牙BLE 无线连接。</p><h3>其次：蓝牙BLE 无线连接</h3><ol><li>将吉他左侧USB接口，接入充电宝或5V电源，吉他红色指示灯亮起</li><li>进入"D15吉他"App"，点右上角蓝牙图标，点“扫描”。</li><li>选择 D15Guitar，连接后回到控制页。</li></ol><p class="flow">所有版本吉他硬件，均可通过苹果设备 BLE 蓝牙连接。</p></section>
+<div class="toc"><a href="#prepare">准备</a><a href="#bluetooth">蓝牙连接</a><a href="#usb">USB 连接</a><a href="#after">连上以后</a><a href="#update">固件更新</a><a href="#other">第三方 MIDI</a><a href="#faq">常见问题</a></div>
 
-<section class="card"><h2>Android 手机 / 平板</h2>
-    <h3>准备：安装安卓版 "D15吉他" 安装包</h3>
-    <h3>推荐：USB (Type‑C) 有线连接</h3><ol><li>用支持数据传输的USB线连接吉他和安卓设备。</li><li>打开"D15吉他"App，看到“有线/外设 MIDI 已连接”后即可使用。</li></ol><p class="flow">USB 适用于吉他硬件V2.0及以上；硬件V1.0不支持安卓设备。</p><h3>其次：蓝牙BLE 无线连接</h3><ol><li>将吉他左侧USB接口，接入充电宝或5V电源，吉他红色指示灯亮起</li><li>进入"D15吉他"App"，点右上角蓝牙图标，点“扫描”。</li><li>选择 D15Guitar，连接后回到控制页。</li></ol><p class="flow">硬件V2.0及以上支持安卓蓝牙BLE连接。</p><div class="warn"><p>受安卓系统蓝牙影响，蓝牙可能连接不上或演奏可能有延迟，请优先使用有线USB。</p></div></section>
+<section id="prepare">
+<h2>先选一种连接方式</h2>
+<p><strong>USB / 蓝牙，选择一种即可。</strong>在 App 右上角打开「连接吉他」，选择对应方式。</p>
 
-<section class="card"><h2>D15吉他兼容其他第三方MIDI软件</h2></section>
+<div class="grid">
+<div class="card">
+<h3>有灯光版</h3>
+<p>带按键灯、喇叭和内置电池。将电源开关向上拨，开机后可独立弹奏，也可连接手机。</p></div>
+<div class="card">
+<h3>无灯光版</h3>
+<p>连接手机或电脑发声。蓝牙演奏时，用 USB 接通 5V 电源；支持 USB MIDI 的款式也可用数据线直接连接手机。</p></div></div>
 
-<section class="card"><h2>iPhone / iPad</h2>
-    <h3>准备：苹果应用商店（App Store）下载 "库乐队" App</h3>
-    <h3>推荐：USB(Type-C) 有线连接</h3><ol><li>使用支持数据传输的USB线连接吉他与iPhone，吉他红色指示灯亮起。</li><li>打开"库乐队"App，点右上角+，音轨选择吉他后可直接使用。</li></ol><p class="flow">USB适用于：吉他硬件V2.0及以上版本，iPhone15及以上版本，低版本请使用蓝牙BLE 无线连接。</p><h3>其次：蓝牙BLE 无线连接</h3><ol><li>将吉他左侧USB接口，接入充电宝或5V电源，吉他红色指示灯亮起</li><li>打开"库乐队"App，点右上角+，音轨选择吉他</li><li>进入后点右上角「设置」（齿轮图标）-> 最下方「高级」-> 最下方「蓝牙 MIDI 设备」，选择 D15Guitar，连接后回到主页。</li></ol><p class="flow">所有版本吉他硬件，均可通过苹果设备 BLE 蓝牙连接。</p></section>
+<p class="small">最早的 HW1 仅支持蓝牙 MIDI，USB 用于供电和电脑刷机；HW2、HW3 及有灯光版支持 USB MIDI。无法确定型号时，可联系售后核对。</p>
 
-<section class="card"><h2>Android 手机 / 平板</h2>
-    <h3>准备：从应用宝APP下载「随身乐队」。（应用宝：sj.qq.com</h3>
-    <h3>推荐：USB (Type‑C) 有线连接</h3><ol><li>用支持数据传输的USB线连接吉他和安卓设备。</li><li>打开"随身乐队"App，选吉他后即可使用。</li></ol><p class="flow">USB 适用于吉他硬件V2.0及以上；硬件V1.0不支持安卓设备。</p><div class="warn"><p>经本人测试用小米手机+随身乐队，无法使用蓝牙BLE连接，请使用有线USB。</p></div></section>
+<p>安装 <a href="https://apps.apple.com/cn/app/d15%E5%90%89%E4%BB%96/id6799462676">iPhone / iPad 版</a> 或 <a href="https://download.d15cyber.com/downloads/android/D15Guitar-Android-latest.apk">Android 版</a>。首次打开允许蓝牙和联网；Android 如提示「附近的设备」权限，也需允许。</p></section>
 
-<section class="card"><h2>Mac 电脑</h2><h3>推荐：USB(Type-C) 有线连接</h3>
-    <ol><li>用USB数据线连接吉他和 Mac。</li><li>打开库乐队，选择吉他乐器即可演奏。</li></ol><p class="flow">USB 适用于硬件 V2.0及以上；硬件 V1.0 不支持 USB。</p><h3>其次：蓝牙 MIDI</h3><p>在 macOS“音频 MIDI 设置”中打开蓝牙 MIDI 配置并连接吉他，再打开库乐队。<p class="flow">所有吉他硬件均可通过苹果设备 BLE 蓝牙连接。</p></p></section>
+<section id="bluetooth">
+<h2>蓝牙连接</h2>
+<ol><li>给吉他开机或接通电源，打开手机蓝牙。</li><li>在 <strong>D15吉他 App</strong> 右上角打开「连接吉他」，选择「蓝牙」。</li><li>扫描并选择 <strong>D15Guitar</strong>，等待显示「可以演奏」。</li></ol>
+<p>在 App 内连接即可，不必先在手机系统设置里配对。启用「自动连接上次蓝牙设备」后，下次打开 App 会尝试重连。</p>
+<p class="small">旧固件可能显示旧蓝牙名称；找不到时可关闭连接页的设备名称过滤，或查看 Legacy 说明。吉他若已连着另一部手机或电脑，先从另一端断开。</p></section>
 
-<section class="card"><h2>Windows 电脑</h2><h3>推荐：USB(Type-C) 有线连接</h3><p>本人实测 Windows 11 + Cakewalk，可以正常使用。</p><p class="flow">Windows电脑环境及其复杂，不同电脑、驱动和音乐软件可能存在很大差异。</p></section>
+<section id="usb">
+<h2>USB 连接</h2>
+<ol><li>使用<strong>支持数据传输</strong>的 USB 线，将吉他连接手机。只有充电功能的线无法传输 MIDI。</li><li>在 App「连接吉他」中选择「USB」。出现系统 USB 权限提示时允许，等待「可以演奏」。</li></ol>
+<p>USB-C 手机可使用合适的数据线；Lightning 接口的 iPhone / iPad 需要支持 USB 外设的转接器。Android 转接器需支持 OTG，部分手机还需在系统设置里开启 OTG。</p>
+<p>如果同时接着 USB 又连着蓝牙，只选一条演奏路径。使用第三方 MIDI 软件时尤其要避免同时启用同一把吉他的两路输入，否则可能重复发声。</p></section>
 
-<section class="card"><h2>连接后没有声音？</h2><ul><li>检查吉他上电源指示红灯是否亮起，没亮请重新插拔。</li><li>确认使用的是数据线，不是只能充电的线。</li><li>查看 D15 App 连接状态，确认当前走 USB 还是蓝牙。</li><li>使用 D15 App 时，检查手机音量和“App 不发声”设置。</li><li>使用库乐队、随身乐队或 Cakewalk 时，确认已创建软件乐器音轨并选择音色。</li></ul><details><summary>蓝牙搜不到吉他</summary><p>确认硬件版本支持蓝牙，并检查吉他是否已被另一台设备或其他 App 占用。断开其他连接后重新扫描，必要时重启吉他和蓝牙。</p></details></section>
+<section id="after">
+<h2>连上以后</h2>
+<ol><li><strong>导入歌曲：</strong>首次连接后按提示下载并导入；选择「稍后」也可从「智能谱 → 导入歌曲 → 从网络导入歌曲」进入。下载需要联网。</li><li><strong>开始跟弹：</strong>在智能谱中选歌，按谱面提示弹奏。有灯光版还会给出按键灯提示。</li><li><strong>查看设备：</strong>「连接吉他 → 设备信息与更新」里可查看型号、MAC 地址、固件版本。</li></ol>
+<p>这台手机取得下载资格后，后续下载歌曲不必一直连接吉他。同编号歌曲会更新，其余歌曲保留。</p>
+<p>进入智能谱时，有喇叭的吉他默认静音，手机发声，退出后恢复。更多玩法见<a href="https://d15cyber.com/help/usage-guide.html">使用说明</a>。</p></section>
 
-<section class="card"><h2>先确认吉他硬件版本</h2><div class="warn"><p><b>硬件 V1.0：</b>2026 年 6 月 14 日之前购买，飞线版。</p><p><b>硬件 V2.0：</b>2026 年 6 月 14 日(含)至 6 月 16 日（含）购买，飞线版。</p><p><b>硬件 V3.0：</b>2026 年 6 月 16 日之后购买，PCB版。</p></div></section>
+<section id="update">
+<h2>固件更新</h2>
+<details>
+<summary>已是 5.x：在手机上更新</summary>
+<ol><li>让<strong>吉他与手机通过蓝牙连接</strong>，并保证电量充足。</li><li>打开「连接吉他 → 设备信息与更新 → 固件更新」。检查更新不会立即刷写吉他。</li><li>发现新版后，点「下载并升级」，等待传输完成和吉他自动重启。</li></ol>
+<p>App 在线升级目前<strong>仅支持蓝牙</strong>。USB 可以供电；无需按 BOOT / RESET。升级过程中保持连接，不要关闭吉他或退出 App。</p>
+<p>如提示超时，先重新连接并查看当前版本，再决定是否重试。</p></details>
 
-<section class="card"><h2>需要帮助</h2><p>请说明吉他硬件版本、手机或电脑型号及连接方式，发送邮件至 <a href="mailto:84798012@qq.com">84798012@qq.com</a>。</p>
-<p>微信：D15Cyber </p></section>
-</main></body></html>
+<details>
+<summary>4.5 等旧固件：先用电脑升级</summary>
+<p>旧固件不能直接使用 App 的在线升级流程。需使用电脑和 ESP Tool，按吉他型号选择对应的手动升级包及随包说明；不要混刷其他型号。</p>
+<p>升级到配套 5.x 固件后，即可使用新版 App 和后续蓝牙升级。需要升级包或不确定型号时，请联系售后。</p></details></section>
+
+<section id="other">
+<h2>连接第三方 MIDI 软件</h2>
+<p>D15吉他也可作为 MIDI 控制器使用，声音由库乐队等软件的乐器轨道产生。第三方软件不会提供 D15 App 的智能谱、设备设置等功能。</p>
+<details>
+<summary>Mac / iPhone / iPad 的库乐队</summary>
+<p><strong>Mac 蓝牙：</strong>打开「音频 MIDI 设置 → 窗口 → 显示 MIDI 工作室 → 配置蓝牙」，连接吉他；再在库乐队选择软件乐器轨道。</p>
+<p><strong>Mac USB：</strong>支持 USB MIDI 的吉他接入后，在库乐队选择软件乐器轨道。不要同时接通同一把琴的蓝牙 MIDI 输入。</p>
+<p><strong>iPhone / iPad：</strong>在库乐队的设置中找到「高级 → 蓝牙 MIDI 设备」并连接，然后打开一个触控乐器；支持 USB MIDI 的吉他也可通过合适的数据线或转接器使用。</p>
+<p class="small">Apple 操作说明：<a href="https://support.apple.com/zh-cn/guide/audio-midi-setup/ams33f013765/mac">Mac 蓝牙 MIDI</a> / <a href="https://support.apple.com/zh-cn/guide/garageband-iphone/chse356a0321/ios">iPhone 库乐队</a>。</p></details>
+<details>
+<summary>其他手机或电脑 MIDI 软件</summary>
+<p>先确认软件支持 USB MIDI 或 BLE MIDI，然后在它的 MIDI 输入设置中选择吉他，并加载可发声的乐器。不同软件的蓝牙入口可能不同；不能只在系统蓝牙里配对后就认为已经接通 MIDI。</p></details></section>
+
+<section id="faq">
+<h2>连不上或没有声音</h2>
+<details>
+<summary>扫描不到吉他</summary>
+<p>检查吉他电源、手机蓝牙和 App 蓝牙权限。断开其他手机、电脑上的连接，再回到 App 扫描；旧名称设备可尝试关闭名称过滤。</p></details>
+<details>
+<summary>提示暂时无法使用、验证失败或需要升级</summary>
+<p>先断开重连。若仍失败，核对固件版本；旧固件需先用电脑更新。不要因此删除 App 或清空歌曲。联系售后时提供页面提示、设备型号和 MAC 地址。</p></details>
+<details>
+<summary>连上但没有声音，或声音重复</summary>
+<p>确认已经显示「可以演奏」，检查手机媒体音量、静音状态和音频输出是否去了耳机。第三方软件还需选中可发声的乐器轨道。重复发声时，先确认没有同时启用 USB 和蓝牙两路 MIDI。</p></details></section>
+
+<footer>
+<p>D15吉他 · <a href="https://d15cyber.com/help/">详细说明与打印版</a> · <a href="https://d15cyber.com/help/legacy/">Legacy 旧版说明</a></p>
+<p>需要帮助：微信 D15Cyber · <a href="mailto:84798012@qq.com">邮件联系</a></p></footer></main></body></html>

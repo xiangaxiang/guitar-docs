@@ -1,0 +1,29 @@
+D15 在线说明维护（2026-10-16）
+
+固定入口：https://d15cyber.com/help/
+连接说明：connection-guide.html
+使用说明（含高级玩法）：usage-guide.html
+旧版归档：legacy/，原始文件和校验清单位于 legacy/v4.5/。
+一页打印版：print/quick-start-with-lights.pdf、print/quick-start-without-lights.pdf。
+
+只维护这一份 HTML 源码；发布到独立站、Gitee 和 GitHub。
+原 Gitee raw/main/connection-guide.html 与 usage-guide.html 不改名。
+iOS 现有 App 从这两个固定地址读取 HTML；本轮没有改 App 或离线内置文件。
+下次正常更新 iOS / Android 时，再同步两端打包的离线 HTML，并可把主地址改为独立站。
+旧链接和根目录历史 connection-guide.pdf、usage-guide.pdf 暂时保留，避免断链；新打印版只从帮助首页推荐。
+
+打印说明的可编辑原稿和生成器：文稿/吉他说明/快速使用说明/源文件。
+修改后生成 PDF，再复制至本仓库 print/ 的对应文件。
+
+发布步骤：
+1. 修改 HTML，浏览器查看页面；保留两个页面的 D15吉他 连接说明 / D15吉他 使用说明 title，App 会检查。
+2. python3 tools/prepare_help_publish.py 更新文件清单。
+3. 提交并推送 Gitee 和 GitHub。独立站使用同一个确定提交。
+4. 腾讯云现有“执行命令”下载该提交，在服务器运行 tools/deploy_help.py。
+   只部署 /help/，并更新原首页两处帮助链接；自动备份到 /root/d15-home-backups/help-日期时间。
+   nginx 配置校验失败会恢复原配置；不会改 APK、OTA、曲包、鉴权服务、隐私政策。
+5. 检查独立站与 Gitee 原 URL 返回新内容、Legacy 可打开、两份 PDF 可下载。
+
+本轮保留了原版网页/PDF的完整字节，不改写 Legacy 原文。
+当前说明区分 App/固件版本与硬件外观：App 2.0 + 固件5.x；有灯光版/无灯光版。
+最早 HW1 只支持 BLE MIDI，USB 为供电/电脑刷机，不能以“无灯光版”笼统承诺 USB MIDI。
