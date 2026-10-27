@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- D15Guide-2.1 -->
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>D15吉他 使用说明</title><style>
 :root{color-scheme:light dark;--bg:#f8f9fb;--ink:#1b2839;--muted:#5c6878;--line:#dce2e8;--accent:#087d89;--panel:#fff}
 @media(prefers-color-scheme:dark){:root{--bg:#10141a;--ink:#ecf0f5;--muted:#a6b1bf;--line:#303a47;--accent:#65d5de;--panel:#171e28}}
@@ -13,10 +14,15 @@
 <div class="route" id="bluetooth"><strong>蓝牙</strong><p>在 App 右上角打开「连接吉他」，选「蓝牙」，找到 <strong>D15Guitar</strong> 并连接。</p></div>
 <div class="route" id="usb"><strong>USB</strong><p>用 USB 数据线连接吉他和手机，在「连接吉他」里选「USB」。</p></div>
 <p>显示「可以演奏」后，就连好了。</p>
+<details id="fruit"><summary>水果套件：接线与上电</summary>
+<div class="detail-body"><p>将线的一端接到开发板对应的 IO，另一端接水果或果冻。下表按开发板的 IO 标号接线，不是从上往下数第几个针脚。</p>
+<div class="table"><table><thead><tr><th>功能</th><th>IO</th><th>默认 C 组</th></tr></thead><tbody><tr><td>和弦键 1 / 2 / 3 / 4</td><td>2 / 12 / 11 / 10</td><td>C / Dm / Em / F</td></tr><tr><td>和弦键 5 / 6 / 7 / 8</td><td>5 / 6 / 7 / 9</td><td>G / Am / Bdim / G7</td></tr><tr><td>扫弦 / 分解</td><td>1 / 4</td><td>按所选和弦演奏</td></tr></tbody></table></div>
+<p>接好后，手离开材料，再接通 USB 电源，等待约 2 秒。随后按上面的蓝牙方式连接 App，触摸材料即可演奏，声音由手机播放。</p>
+<p class="small">更换材料或接线后，松手重新上电。智能谱和自定义和弦会改变各键的和弦，请以 App 提示为准。</p></div></details>
 <p class="small">USB 需要支持数据传输的线。最早 HW1 仅支持蓝牙演奏；线材、转接器等问题见下方常见问题。</p></section>
-<section class="step" id="import"><h2><span>2</span>导入歌曲</h2>
-<p>首次连接后，回到主界面，按提示下载并导入歌曲，手机需联网。</p>
-<p>选了「稍后」也没关系，从「智能谱 → 导入歌曲 → 从网络导入歌曲」进入即可。</p></section>
+<section class="step" id="import"><h2><span>2</span>选择歌曲</h2>
+<p>进入「智能谱」，在「曲库」中搜索歌名或歌手，点开歌曲即可下载并打开。也可以从「收藏」或「最近」找到常弹的歌。</p>
+<p class="small">下载新歌需要联网；已经下载的歌曲可以离线弹奏。</p></section>
 <section class="step" id="play"><h2><span>3</span>开始跟弹</h2>
 <p>进入「智能谱」选歌，按谱面提示按下对应的和弦键。有灯光版还可跟着按键灯弹奏。</p>
 <p class="small">有喇叭的吉他进入智能谱后自动静音，由手机发声，退出后恢复。</p>
@@ -40,9 +46,11 @@
 <ul><li><strong>伴奏：</strong>顶部快捷键开关伴奏；在设置中分别调整主旋律、吉他、节拍器和鼓机等音量。</li><li><strong>和弦名称：</strong>切换字母或数字显示；数字只显示根音，C、D、E、F、G、A、B 对应 1–7。也可点谱面上的和弦名称切换。</li><li><strong>谱面：</strong>顶部快捷键循环切换三种谱面显示；设置中可调整谱面大小。</li><li><strong>跳过前奏：</strong>从顶部快捷键跳到可开始跟弹的位置。</li><li><strong>自动播放：</strong>可先听整首歌曲，再切回吉他跟弹练习。</li></ul>
 <p>拖动时间线可调整练习位置。演奏结束后退出谱面，会停止本次歌曲播放。</p>
 <div>
-<h3>导入、更新和管理歌曲</h3>
-<p>「智能谱 → 导入歌曲」中可从网络下载官方曲包，也可使用菜单里的文件等导入方式。「管理」中可整理或删除本机歌曲。</p>
-<p>网络导入需要这台手机曾连接并验证过配套吉他，取得资格后不要求下载时一直连接。导入官方曲包会更新同编号歌曲，保留其他歌曲；重要的自编歌曲请另存备份。</p>
+<h3>找歌、下载和管理</h3>
+<p>搜索支持歌名、歌手、拼音和拼音首字母。点开在线歌曲时才下载曲谱；再次打开未更新的已下载歌曲会使用本机文件。</p>
+<p>首次使用在线曲库时，先联网连接并验证配套设备。取得资格后，不需要每次下载都连接设备。</p>
+<p>曲库右上角的「…」菜单可刷新列表、仅显示已下载的歌曲，或导入自己的曲谱文件。「管理已保存的曲谱」只整理本机文件，不会删除网上的歌曲。</p>
+<p>升级 App 会保留已有歌曲、收藏和最近记录。与在线曲库不重复的个人导入歌曲仍保留在列表中；重要的自编歌曲请另存备份。</p>
 <p>不同版本曲谱格式可能不同；旧曲谱或自行制作的文件应按当前导入入口支持的格式使用。</p></div>
 
 <div>
@@ -110,6 +118,9 @@
 </section>
 <section id="faq"><h2>常见问题</h2>
 
+<details><summary>仍在使用 App 2.0，怎么导入歌曲？</summary>
+<p>首次连接设备后，回到主界面，按提示下载并导入歌曲。也可从「智能谱 → 导入歌曲 → 从网络导入歌曲」进入。2.1 使用在线曲库，点开歌曲时下载，无需先导入整包。</p></details>
+
 <details><summary>USB 线和转接器怎么选？</summary>
 <div class="detail-body"><p>使用支持数据传输的线；仅充电线不能连接 MIDI。USB-C 手机可用合适的数据线；Lightning 接口需要支持 USB 外设的转接器。Android 转接器需支持 OTG，部分手机需在系统设置里开启 OTG。</p><p>最早 HW1 的 USB 仅用于供电和电脑刷机，演奏请选蓝牙。其他无灯光款和有灯光款按实际支持的连接方式使用。</p></div></details>
 <details>
@@ -122,8 +133,8 @@
 <summary>连上但没有声音，或声音重复</summary>
 <p>确认已经显示「可以演奏」，检查手机媒体音量、静音状态和音频输出是否去了耳机。第三方软件还需选中可发声的乐器轨道。重复发声时，先确认没有同时启用 USB 和蓝牙两路 MIDI。</p></details></section>
 <footer>
-<p class="downloads">一页打印说明：<a href="https://d15cyber.com/help/print/quick-start-with-lights.pdf">有灯光版</a><a href="https://d15cyber.com/help/print/quick-start-without-lights.pdf">无灯光版</a></p>
+<p class="downloads">一页打印说明：<a href="https://d15cyber.com/help/print/quick-start-with-lights.pdf">有灯光版</a><a href="https://d15cyber.com/help/print/quick-start-without-lights.pdf">无灯光版</a><a href="https://d15cyber.com/help/print/quick-start-fruit.pdf">水果套件</a></p>
 <p>仍在用旧 App 或旧固件？<a href="https://d15cyber.com/help/legacy/">查看旧版说明（Legacy）</a></p>
 <p>需要帮助：微信 D15Cyber · <a href="mailto:84798012@qq.com">邮件联系</a></p>
-<p class="small">本页适用 App 2.0 / 固件 5.x · 2026-10-16 更新</p>
+<p class="small">本页适用 App 2.1 / 固件 5.x，含 App 2.0 导入说明 · 2026-10-26 更新</p>
 </footer></main></body></html>

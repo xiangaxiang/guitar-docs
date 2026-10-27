@@ -1,13 +1,18 @@
 {
-  "connection-guide.html": "0795026d489eab68cd62d201f8064b6b8b58e09f18570c8a0ff19ceecd570cd6",
-  "index.html": "9c4e6b1f62646a9145872ac777565c5d1c750bf32f9d8eb25017048cb8b488e6",
-  "legacy/index.html": "8ca9a2b18b866cd105c26d1cd3a1e973dcd6fcc24dd8f2b49e3bd1f59a929a65",
+  "connection-guide.html": "1ff5f13408a8940da53f4c930b84348422bfcbb4af5aa3fa111fc87575df4d76",
+  "index.html": "bcc4a9d735f58b54f28e0972cf425b30ae236e5163353a06a3799d3e96d11970",
+  "legacy/index.html": "c2c0034efa33b1cf68691e504c5977c82c594788475b213ece89f9dc6f02a760",
+  "legacy/v2.0/connection-guide.html": "0795026d489eab68cd62d201f8064b6b8b58e09f18570c8a0ff19ceecd570cd6",
+  "legacy/v2.0/index.html": "9c4e6b1f62646a9145872ac777565c5d1c750bf32f9d8eb25017048cb8b488e6",
+  "legacy/v2.0/original-sha256.json": "8f0371466c3e2258b40a5b36c9f62f1cdf767f3e70f13f25fbe4717736c66e51",
+  "legacy/v2.0/usage-guide.html": "a58b79b599cb0406b4dfc97f56e207f85866cee099ff1f70082b59223725ca51",
   "legacy/v4.5/connection-guide.html": "c9b4282358a7a23bb840a4f354c664b13b5e8677d926bff690d9284f3c07e4b0",
   "legacy/v4.5/connection-guide.pdf": "d05d941b2504ecabea671463a9dede6c49ee80ead85797feb595a00c38fa535b",
   "legacy/v4.5/original-sha256.json": "edf86fec7ca1f317889bcbe237adac11e17bf2233cceb7c2d1f9804653c15600",
   "legacy/v4.5/usage-guide.html": "6750633c8c3a739fd0a367cbdaa9d028ce573cac2ddd809365e8d57373f2ddde",
   "legacy/v4.5/usage-guide.pdf": "2628a04fbd91913e472330097bd57ca4283ea8237599cae9b91b9e419ad0e628",
-  "print/quick-start-with-lights.pdf": "7b7673a3191f9384711ddebf18f353740c53825266939e92debe7ea0d306cdc6",
-  "print/quick-start-without-lights.pdf": "a85a9e98cecdfeb0b8ad4a91c0bb477456fe37192994b742ef37205d9f43d24d",
-  "usage-guide.html": "a58b79b599cb0406b4dfc97f56e207f85866cee099ff1f70082b59223725ca51"
+  "print/quick-start-fruit.pdf": "1728dc429b65560b00f3d2bf145ec4e6f3e36edd9c4752db9b25168f25354a66",
+  "print/quick-start-with-lights.pdf": "8631c5b30d46a14b0c62b029716d507e69343d44e79ead7a6498365aa1455122",
+  "print/quick-start-without-lights.pdf": "6a6a37ac0d9a77fe4bf82acd397aba2df621d4f9ea2a3d51fc178f9c96ea02d2",
+  "usage-guide.html": "59f3327c067654f5476a9fb2cb4e871d7cb2cdf437d196772898786170c9a713"
 }
